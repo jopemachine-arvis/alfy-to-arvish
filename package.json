@@ -11,6 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/jopemachine/alfy-to-arvish.git"
   },
+  "contributors": [],
   "files": [
     "src/*.js",
     "alfred-to-arvis.csv",
@@ -35,6 +36,8 @@
     "alfred-to-arvis": "^0.0.8",
     "arvis-to-alfred": "^0.0.1",
     "code-replacer": "^0.1.4",
+    "execa": "^5.1.1",
+    "loud-rejection": "^2.2.0",
     "meow": "^5.0.0"
   }
 }
