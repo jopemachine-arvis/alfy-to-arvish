@@ -1,0 +1,40 @@
+{
+  "name": "alfy-to-arvish",
+  "version": "0.0.1",
+  "description": "Convert reverse convert and alfy workflow project to arvish project",
+  "main": "src/index.js",
+  "author": {
+    "name": "jopemachine",
+    "email": "jopemachine@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jopemachine/alfy-to-arvish.git"
+  },
+  "files": [
+    "src/*.js",
+    "alfred-to-arvis.csv",
+    "arvis-to-alfred.csv"
+  ],
+  "bin": {
+    "alfy-to-arvish": "src/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "alfy",
+    "alfred",
+    "alfred-workflow",
+    "arvis",
+    "arvis-workflow",
+    "arvish"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "alfred-to-arvis": "^0.0.8",
+    "arvis-to-alfred": "^0.0.1",
+    "code-replacer": "^0.1.4",
+    "meow": "^5.0.0"
+  }
+}
