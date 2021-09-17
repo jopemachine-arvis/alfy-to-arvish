@@ -38,6 +38,7 @@ const alfyToArvish = async () => {
       replacerProc.then(async () => {
         const pkg = await fse.readJSON('./arvis/package.json');
         pkg.dependencies.arvish = await latestVersion('arvish');
+        pkg.files && pkg.files.push('arvis-workflow.json') && pkg.files.splice(pkg.files.indexOf('info.plist'), 1);
 
         await fse.writeJSON('./arvis/package.json', pkg, { encoding: 'utf8', spaces: 2 });
         resolve();
@@ -68,10 +69,13 @@ const arvishToAlfy = async () => {
       ], execaOpt);
 
       replacerProc.stdout.pipe(process.stdout);
-      replacerProc.then(() => {
+      replacerProc.then(async () => {
         const pkg = await fse.readJSON('./alfred/package.json');
-        pkg.dependencies.alfy = await latestVersion('alfy');
+
+        // Avoid ESM
+        pkg.dependencies.alfy = '^0.11.1';
         pkg.scripts && pkg.scripts.prepublishOnly && delete pkg.scripts.prepublishOnly;
+        pkg.files && pkg.files.push('info.plist') && pkg.files.splice(pkg.files.indexOf('alfred-workflow.json'), 1);
 
         await fse.writeJSON('./alfred/package.json', pkg, { encoding: 'utf8', spaces: 2 });
         resolve();

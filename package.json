@@ -1,6 +1,6 @@
 {
   "name": "alfy-to-arvish",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "Convert alfy workflow to arvish workflow (or vice versa)",
   "main": "src/index.js",
   "author": {
@@ -34,7 +34,7 @@
   "license": "MIT",
   "dependencies": {
     "alfred-to-arvis": "^0.0.8",
-    "arvis-to-alfred": "^0.0.1",
+    "arvis-to-alfred": "^0.0.5",
     "code-replacer": "^0.1.4",
     "delete": "^1.1.0",
     "execa": "^5.1.1",
