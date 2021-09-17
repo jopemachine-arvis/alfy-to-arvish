@@ -1,7 +1,7 @@
 {
   "name": "alfy-to-arvish",
-  "version": "0.0.6",
-  "description": "Convert reverse convert and alfy workflow project to arvish project",
+  "version": "0.0.7",
+  "description": "Convert alfy workflow to arvish workflow (or vice versa)",
   "main": "src/index.js",
   "author": {
     "name": "jopemachine",

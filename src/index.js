@@ -1,6 +1,7 @@
 const execa = require('execa');
 const path = require('path');
 const del = require('delete');
+const fse = require('fs-extra');
 const loudRejection = require('loud-rejection');
 const latestVersion = require('latest-version');
 const alfredToArvis = require('alfred-to-arvis').default;
@@ -34,7 +35,13 @@ const alfyToArvish = async () => {
       ], execaOpt);
 
       replacerProc.stdout.pipe(process.stdout);
-      replacerProc.then(resolve);
+      replacerProc.then(async () => {
+        const pkg = await fse.readJSON('./arvis/package.json');
+        pkg.dependencies.arvish = await latestVersion('arvish');
+
+        await fse.writeJSON('./arvis/package.json', pkg, { encoding: 'utf8', spaces: 2 });
+        resolve();
+      });
     } catch (err) {
       reject(err);
     }
@@ -61,7 +68,14 @@ const arvishToAlfy = async () => {
       ], execaOpt);
 
       replacerProc.stdout.pipe(process.stdout);
-      replacerProc.then(resolve);
+      replacerProc.then(() => {
+        const pkg = await fse.readJSON('./alfred/package.json');
+        pkg.dependencies.alfy = await latestVersion('alfy');
+        pkg.scripts && pkg.scripts.prepublishOnly && delete pkg.scripts.prepublishOnly;
+
+        await fse.writeJSON('./alfred/package.json', pkg, { encoding: 'utf8', spaces: 2 });
+        resolve();
+      });
     } catch (err) {
       reject(err);
     }
