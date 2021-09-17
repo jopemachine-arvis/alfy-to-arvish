@@ -1,7 +1,8 @@
 const path = require('path');
 
-const alfredToArvisCSV = path.resolve(__dirname, 'alfred-to-arvis.csv');
-const arvisToAlfredCSV = path.resolve(__dirname, 'arvis-to-alfred.csv');
+const rootPath = path.dirname(__dirname);
+const alfredToArvisCSV = path.resolve(rootPath, 'alfred-to-arvis.csv');
+const arvisToAlfredCSV = path.resolve(rootPath, 'arvis-to-alfred.csv');
 
 module.exports = {
   alfredToArvisCSV,
